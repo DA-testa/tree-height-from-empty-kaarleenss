@@ -10,20 +10,32 @@ def compute_height(n, parent):
     heights = np.zeros(n, dtype=int)
 
     # for i in range(n):
-
+    sakums = None
     for i in range(n):
-        if np.where(parent == i)[0].size == 0:
-            heights[i] = 1 
-
-    for i in range(n):
+        if parent[i] == -1:
+            sakums = i 
+    def calc_height(elmnt):
+        if heights[elmnt] !=0:
+            return heights[elmnt]
         max_height = 0
-        for child in np.where(parent == i)[0]:
-            zari = heights[child]
+        for child in np.where(parent == elmnt)[0]:
+            zari = calc_height(child)
             max_height = max(max_height, zari)
 
-        heights[i] = max_height + 1
-
+        heights[elmnt] = max_height + 1
+        return heights[elmnt]
     
+    calc_height(sakums)
+    
+        # for i in range(n):
+        #     max_height = 0
+        #     for child in np.where(parent == i)[0]:
+        #         zari = heights[child]
+        #         max_height = max(max_height, zari)
+
+        #     heights[i] = max_height + 1
+
+        
     return np.max(heights)
 
 
