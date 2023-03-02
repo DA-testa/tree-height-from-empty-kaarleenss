@@ -9,11 +9,13 @@ def compute_height(n, parent):
 
     heights = np.zeros(n, dtype=int)
 
+    # for i in range(n):
+
     for i in range(n):
         if np.where(parent == i)[0].size == 0:
             heights[i] = 1 
 
-    for i in range(n - 1, -1, -1):
+    for i in range(n):
         max_height = 0
         for child in np.where(parent == i)[0]:
             zari = heights[child]
@@ -46,6 +48,7 @@ def main():
         else:
             print("Neatļauts faila nosaukums")
     print(compute_height(n, parent))
+
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
     
@@ -54,11 +57,11 @@ def main():
     # call the function and output it's result
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # In Python, the default limit on recursion depth is rather low,
     # so raise it here for this problem. Note that to take advantage
     # of bigger stack, we have to launch the computation in a new thread.
-    sys.setrecursionlimit(10**7)  # max depth of recursion
-    threading.stack_size(2**27)   # new thread will get stack of such size
-    threading.Thread(target=main).start()
+    #sys.setrecursionlimit(10**7)  # max depth of recursion
+    #threading.stack_size(2**27)   # new thread will get stack of such size
+threading.Thread(target=main).start()
     # print(numpy.array([1,2,3]))
