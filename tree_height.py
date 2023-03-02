@@ -9,7 +9,6 @@ def compute_height(n, parent):
 
     heights = np.zeros(n, dtype=int)
 
-    # for i in range(n):
     sakums = None
     for i in range(n):
         if parent[i] == -1:
