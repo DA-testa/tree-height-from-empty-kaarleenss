@@ -26,7 +26,8 @@ def compute_height(n, parent):
     
     calc_height(sakums)
     
-
+ 
+ 
         
     return np.max(heights)
 
