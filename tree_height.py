@@ -5,6 +5,7 @@ import threading
 import numpy as np
 
 
+
 def compute_height(n, parent):
 
     heights = np.zeros(n, dtype=int)
